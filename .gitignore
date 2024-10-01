@@ -1,0 +1,12 @@
+Library/Artifacts
+Library/Bee/artifacts
+Library/Bee/CachedNodeOutput
+Library/PackageCache
+Library/ScriptAssemblies
+Library/ShaderCache/builtin
+Library/ShaderCache/shader
+Library/StateCache
+Temp
+Library/PlayModeViewStates
+Logs
+Library/Bee
