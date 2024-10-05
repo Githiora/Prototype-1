@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
-        
+
         // Move the vehicle forward        
         // Will move a unit per frame call. If 60fps car will move 60 units.
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
