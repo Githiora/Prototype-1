@@ -67,6 +67,7 @@
     <Compile Include="Assets/Course Library/Scripts/PlayerController.cs" />
     <Compile Include="Assets/Challenge 1/Scripts/FollowPlayerX.cs" />
     <Compile Include="Assets/Challenge 1/Scripts/PlayerControllerX.cs" />
+    <Compile Include="Assets/Course Library/Scripts/ObstacleVehicleController.cs" />
     <Compile Include="Assets/Challenge 1/Scripts/PropellerControllerX.cs" />
     <Compile Include="Assets/Course Library/Scripts/FollowPlayer.cs" />
   </ItemGroup>
