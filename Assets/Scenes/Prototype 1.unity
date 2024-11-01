@@ -3173,6 +3173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b5cf860427754e38a16db2ae7f23de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 20
 --- !u!54 &639035938
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3419,6 +3420,9 @@ MonoBehaviour:
   cameras:
   - {fileID: 534669902}
   - {fileID: 1410601531}
+  offsets:
+  - {x: 0, y: 5.43, z: -8.73}
+  - {x: 0, y: 2.47, z: 0.5}
 --- !u!1001 &652413581
 PrefabInstance:
   m_ObjectHideFlags: 0
