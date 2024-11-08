@@ -3519,6 +3519,11 @@ MonoBehaviour:
   speedText: {fileID: 996787024}
   rpmText: {fileID: 91298246}
   centerOfMass: {fileID: 1768299856}
+  allWheels:
+  - {fileID: 639035935}
+  - {fileID: 639035942}
+  - {fileID: 639035941}
+  - {fileID: 639035940}
 --- !u!1 &639035934 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 165870, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}

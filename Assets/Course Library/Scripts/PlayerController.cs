@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] TextMeshProUGUI rpmText;
 
     [SerializeField] GameObject centerOfMass;
+    [SerializeField] List<WheelCollider> allWheels;
+    int wheelsOnGround;
+
 
     void Start()
     {
@@ -30,20 +33,43 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
 
-        // Move the vehicle forward        
-        // Will move a unit per frame call. If 60fps car will move 60 units.
-        // transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        playerRb.AddRelativeForce(Vector3.forward * horsePower * forwardInput);
+        if (IsOnGround())
+        {
+            // Move the vehicle forward        
+            // Will move a unit per frame call. If 60fps car will move 60 units.
+            // transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+            playerRb.AddRelativeForce(Vector3.forward * horsePower * forwardInput);
 
-        // Turn vehicle
-        transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
+            // Turn vehicle
+            transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
 
-        speed = Mathf.RoundToInt(playerRb.velocity.magnitude * 2.237f);
+            speed = Mathf.RoundToInt(playerRb.velocity.magnitude * 2.237f);
 
-        speedText.SetText("Speed: " + speed + "mph");
+            speedText.SetText("Speed: " + speed + "mph");
 
-        rpm = speed % 30 * 40;
-        rpmText.SetText("RPM: " + rpm);
+            rpm = speed % 30 * 40;
+            rpmText.SetText("RPM: " + rpm);
 
+        }
+    }
+
+    bool IsOnGround()
+    {
+        wheelsOnGround = 0;
+
+        foreach (WheelCollider wheel in allWheels)
+        {
+            if (wheel.isGrounded)
+            {
+                wheelsOnGround++;
+            }
+        }
+
+        if (wheelsOnGround == 4)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
