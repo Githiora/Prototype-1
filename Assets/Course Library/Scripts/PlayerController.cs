@@ -7,12 +7,14 @@ using UnityEngine.Windows.Speech;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float rpm;
     [SerializeField] private float horsePower = 0;
     private const float turnSpeed = 25.0f;
     private float horizontalInput;
     private float forwardInput;
     private Rigidbody playerRb;
     [SerializeField] TextMeshProUGUI speedText;
+    [SerializeField] TextMeshProUGUI rpmText;
 
     [SerializeField] GameObject centerOfMass;
 
@@ -39,5 +41,9 @@ public class PlayerController : MonoBehaviour
         speed = Mathf.RoundToInt(playerRb.velocity.magnitude * 2.237f);
 
         speedText.SetText("Speed: " + speed + "mph");
+
+        rpm = speed % 30 * 40;
+        rpmText.SetText("RPM: " + rpm);
+
     }
 }
