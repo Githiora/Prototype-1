@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 20.0f;
+    // [SerializeField] private float speed = 20.0f;
+    [SerializeField] private float horsePower = 0;
     private const float turnSpeed = 25.0f;
     private float horizontalInput;
     private float forwardInput;
+    private Rigidbody playerRb;
+
+    void Start()
+    {
+        playerRb = GetComponent<Rigidbody>();
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -17,7 +24,8 @@ public class PlayerController : MonoBehaviour
 
         // Move the vehicle forward        
         // Will move a unit per frame call. If 60fps car will move 60 units.
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+        // transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+        playerRb.AddRelativeForce(Vector3.forward * horsePower * forwardInput);
 
         // Turn vehicle
         transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
